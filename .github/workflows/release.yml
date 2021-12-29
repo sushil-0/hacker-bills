@@ -17,13 +17,14 @@ jobs:
         distribution: 'adopt'
         
     - name: Build with Gradle
-      run: gradle build
+      run: gradle clean build shadowJar
     
     - name: Creating zip file
-      run: zip hacker_file.zip build/libs/*
+      run: zip -j hacker_file.zip build/libs/*
     
     - name: print dir
-      run: ls -R
+      run: ls
+      
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.3.1
       with:
